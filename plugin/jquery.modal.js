@@ -1,3 +1,13 @@
+/*
+* License: https://www.gnu.org/copyleft/gpl.html
+* Author: Evandro Araújo
+* Location: Fortaleza, CE, Brazil
+* E-mail: evandroprogram@gmail.com
+* Public profile: https://fb.com/evandropontoaraujo
+* Date: Feb, 22, 2014
+* Version: 1.0.0
+*/
+
 (function ($) {
   var 
       persistantContentArray = [],
