@@ -61,22 +61,21 @@
                       overlayOpacity: 0.5,
                       overlayColor: '#000'},
          
-          options = $.extend(defaults, options),
-          
-          modal_id = Math.random().toString().replace('.', '');
+          options = $.extend(defaults, options);
 
-      // End of statement if the modal window is already visible
-      if (_this.attr(modal_attr) !== undefined) {
-        return false;
+      // Set modal id
+      if (_this.attr(modal_attr) === undefined) {
+        var modal_id = Math.random().toString().replace('.', '');
+      } else {
+        var modal_id = _this.attr(modal_attr);
       }
 
       _this.attr(modal_attr, modal_id);
 
-      persistantContentFlagArray[modal_id] = options.persistantContent;
-
       // Save content if persistantContent is true
       if (!options.persistantContent) {
-        persistantContentArray[modal_id] = $('*', _this).clone(true);
+        persistantContentFlagArray[modal_id] = false;
+        persistantContentArray[modal_id] = $('> *', _this).clone(true);
       };
 
       // Create modal overlay
@@ -134,8 +133,6 @@
         $('*', _this).remove();
         _this.append(persistantContentArray[modal_id]);
       }
-
-      _this.removeAttr(modal_attr);
     }
   }
 
