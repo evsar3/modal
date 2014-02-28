@@ -22,7 +22,7 @@
  * E-mail: evandroprogram@gmail.com
  * Public profile: https://fb.com/evandropontoaraujo
  * Date: Feb, 22, 2014
- * Version: 1.0.0
+ * Version: 1.0.3
 */
 
 (function ($) {
