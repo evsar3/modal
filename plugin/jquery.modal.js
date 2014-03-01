@@ -63,6 +63,9 @@
          
           options = $.extend(defaults, options);
 
+      // Stop function if modal window is already visible
+      if (_this.is(":visible")) return false;
+
       // Set modal id
       if (_this.attr(modal_attr) === undefined) {
         var modal_id = Math.random().toString().replace('.', '');
