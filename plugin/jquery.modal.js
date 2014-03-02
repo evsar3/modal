@@ -61,16 +61,17 @@
                           overlayOpacity: 0.5,
                           overlayColor: '#000'},
 
-              options = $.extend(defaults, options);
+              options = $.extend(defaults, options),
+              modal_id;
 
           // Stop function if modal window is already visible
           if (_this.is(":visible")) return false;
 
           // Set modal id
           if (_this.attr(modal_attr) === undefined) {
-            var modal_id = Math.random().toString().replace('.', '');
+            modal_id = Math.random().toString().replace('.', '');
           } else {
-            var modal_id = _this.attr(modal_attr);
+            modal_id = _this.attr(modal_attr);
           }
 
           _this.attr(modal_attr, modal_id);
