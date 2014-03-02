@@ -1,5 +1,5 @@
 /*
- *    jQuery.modal - Modal over modal and persistant content plugin for jQuery
+ *    jQuery.modal - Modal over modal and persistent content plugin for jQuery
  *   Copyright (C) 2014 Evandro Araújo
  *
  *   This program is free software: you can redistribute it and/or modify
@@ -27,8 +27,8 @@
 
 (function ($) {
   var 
-      persistantContentArray = [],
-      persistantContentFlagArray = [],
+      persistentContentArray = [],
+      persistentContentFlagArray = [],
       modal_attr = 'modal-id',
   
       /* Helpers functions for plugin */
@@ -55,7 +55,7 @@
               _this = this,
 
               defaults = {showOverlay: true,
-                          persistantContent: true,
+                          persistentContent: true,
                           autoCenter: true,
                           overlayClose: false,
                           overlayOpacity: 0.5,
@@ -76,12 +76,12 @@
 
           _this.attr(modal_attr, modal_id);
 
-          persistantContentFlagArray[modal_id] = options.persistantContent;
+          persistentContentFlagArray[modal_id] = options.persistentContent;
 
-          // Save content if persistantContent is true
-          if (!options.persistantContent) {
-            persistantContentArray[modal_id] = $('> *', _this).clone(true);
-          };
+          // Save content if persistentContent is true
+          if (!options.persistentContent) {
+            persistentContentArray[modal_id] = $('> *', _this).clone(true);
+          }
 
           // Create modal overlay
           if (options.showOverlay) {
@@ -123,6 +123,8 @@
 
           // Move the focus to the first input element in modal window
           $(':input:first', _this).focus();
+
+          return _this;
         },
 
         hide: function () {
@@ -131,13 +133,15 @@
               modal_id = _this.attr(modal_attr),
               overlay = $('[' + modal_attr + '="' + modal_id + '"].modal.overlay');
 
+          // Hide modal and restore the content if persistentContent is true
           _this.fadeOut(250, function () {
-            if (!persistantContentFlagArray[modal_id]) {
+            if (!persistentContentFlagArray[modal_id]) {
               $('*', _this).remove();
-              _this.append(persistantContentArray[modal_id]);
+              _this.append(persistentContentArray[modal_id]);
             }
           });
 
+          // Hide and destroy overlay
           overlay.fadeOut(250, function () {
             overlay.remove();
           });
