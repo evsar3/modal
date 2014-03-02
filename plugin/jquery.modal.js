@@ -35,17 +35,17 @@
       helpers = {
         // Get max z-index in the page
         maxZIndex: function (selector) {
-          return Math.max(0, Math.max.apply(null, $.map(((selector || "*") === "*") ? $.makeArray(document.getElementsByTagName("*")) : $(selector),
+          return Math.max(0, Math.max.apply(null, $.map(((selector || '*') === '*') ? $.makeArray(document.getElementsByTagName('*')) : $(selector),
           function (v) {
-            return parseFloat($(v).css("z-index")) || null;
+            return parseFloat($(v).css('z-index')) || null;
           })));
         },
         
         // Center an element in screen
-        center: function (element) {
-          element.css('position', 'fixed');
-          element.css('top', Math.max(0, (($(window).height() - element.outerHeight()) / 2)) + 'px');
-          element.css('left', Math.max(0, (($(window).width() - element.outerWidth()) / 2)) + 'px');
+        center: function (el) {
+          el.css('position', 'fixed');
+          el.css('top', Math.max(0, (($(window).height() - el.outerHeight()) / 2)) + 'px');
+          el.css('left', Math.max(0, (($(window).width() - el.outerWidth()) / 2)) + 'px');
         }
       },
 
@@ -75,9 +75,10 @@
 
           _this.attr(modal_attr, modal_id);
 
+          persistantContentFlagArray[modal_id] = options.persistantContent;
+
           // Save content if persistantContent is true
           if (!options.persistantContent) {
-            persistantContentFlagArray[modal_id] = false;
             persistantContentArray[modal_id] = $('> *', _this).clone(true);
           };
 
