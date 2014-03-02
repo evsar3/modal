@@ -57,7 +57,8 @@ Options table
 
 Methods
 -------
-"show"
+
+### "show"
 The method show is the default. Method it is implicit.
  Example:
  `$('#modal').modal();` or `$('#modal').modal({options})` or `$('#modal').modal('show')` or `$('#modal').modal('show', {options})`
@@ -66,6 +67,10 @@ The method show is the default. Method it is implicit.
 Hide the modal window.
  Example:
  `$('#modal').modal('hide');`
+
+
+> The jQuery.modal don't have any callbacks yet. Commits are welcomed.
+
 
 Demo fiddle:
 [Demo on jsFiddle](http://jsfiddle.net/evandroprogram/wLdFS/ "Launch demo page")
