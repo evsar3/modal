@@ -7,15 +7,15 @@ Usage
 -----
 
 Usage is pretty simple. Don't need to init the objects. Just call the plugin.  
-Exmple:  
-`$('#modal').modal()`
+Exemple:  
+`$('#modal').modal()`  
 
-Exemple 2:
-`$('#modal').modal({options})`
-`#('#modal').modal({overlayClose: true, persistentContent: false})`
+Exemple 2:  
+`$('#modal').modal({options})`  
+`#('#modal').modal({overlayClose: true, persistentContent: false})`  
 
-Options table
--------------
+Options
+-------
 
 <table>
     <thead>
@@ -31,7 +31,7 @@ Options table
             <td>showOverlay</td>
             <td>boolean</td>
             <td>`true`</th>
-            <td>Show modal overlay, if set to `false`, plugin will not create overlay. If you wish a 'invisible' overlay, check overlayColor and `overlayOpacity` options.</td>
+            <td>Show modal overlay, if set to `false`, plugin will not create overlay. If you wish a 'invisible' overlay, check `overlayColor` and `overlayOpacity` options.</td>
         </tr>
         <tr>
             <td>persistentContent</td>
@@ -70,14 +70,14 @@ Methods
 -------
 
 ### show
-The method show is the default. Method it is implicit.  
+Default method. It is impliced.  
  Example:  
  `$('#modal').modal();` or `$('#modal').modal({options})` or `$('#modal').modal('show')` or `$('#modal').modal('show', {options})`
 
 ### hide
 Hide the modal window.  
  Example:  
- `$('#modal').modal('hide');`
+ `$('#modal').modal('hide');`  
 
 
 > The jQuery.modal don't have any callbacks yet. Commits are welcomed.
