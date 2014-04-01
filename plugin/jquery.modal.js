@@ -29,7 +29,7 @@
   var 
       persistentContentArray = [],
       persistentContentFlagArray = [],
-      modal_attr = 'modal-id',
+      modal_attr = 'data-modal-id',
   
       /* Helpers functions for plugin */
       helpers = {
@@ -104,6 +104,10 @@
               _this.modal('hide');
             });
           }
+
+          $('.modal.hide', _this).click(function () {
+            _this.modal('hide');
+          });
 
           _this.css({zIndex: (helpers.maxZIndex() + 1),
                      position: 'fixed'});
