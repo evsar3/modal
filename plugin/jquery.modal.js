@@ -28,7 +28,9 @@
 (function ($) {
   var 
       persistentContentArray = [],
+      
       persistentContentFlagArray = [],
+      
       modal_attr = 'data-modal-id',
   
       /* Helpers functions for plugin */
@@ -62,7 +64,10 @@
                           overlayColor: '#000'},
 
               options = $.extend(defaults, options),
-              modal_id;
+              
+              modal_id = 0,
+              
+              overlay = '<div />';
 
           // Stop function if modal window is already visible
           if (_this.is(":visible")) return false;
@@ -89,24 +94,24 @@
 
           // Create modal overlay
           if (options.showOverlay) {
-            var overlay = $('<div />').css({zIndex: (helpers.maxZIndex() + 1),
-                                            display: 'none',
-                                            position: 'fixed',
-                                            width: '100%',
-                                            height: '100%',
-                                            top: 0,
-                                            left: 0,
-                                            backgroundColor: options.overlayColor,
-                                            opacity: options.overlayOpacity})
-                                      .attr(modal_attr, modal_id)
-                                      .addClass('modal overlay')
-                                      .appendTo('body');
-          }
-
-          if (options.overlayClose) {
-            overlay.click(function () {
-              _this.modal('hide');
-            });
+            overlay.css({zIndex: (helpers.maxZIndex() + 1),
+                         display: 'none',
+                         position: 'fixed',
+                         width: '100%',
+                         height: '100%',
+                         top: 0,
+                         left: 0,
+                         backgroundColor: options.overlayColor,
+                         opacity: options.overlayOpacity})
+                         .attr(modal_attr, modal_id)
+                         .addClass('modal overlay')
+                         .appendTo('body');
+                         
+            if (options.overlayClose) {
+              overlay.click(function () {
+                _this.modal('hide');
+              });
+            }
           }
 
           _this.css({zIndex: (helpers.maxZIndex() + 1),
@@ -137,7 +142,7 @@
               modal_id = _this.attr(modal_attr),
               overlay = $('[' + modal_attr + '="' + modal_id + '"].modal.overlay');
 
-          // Hide modal and restore the content if persistentContent is true
+          // Hide modal and restore content if persistentContent is true
           _this.fadeOut(250, function () {
             if (!persistentContentFlagArray[modal_id]) {
               $('*', _this).remove();
