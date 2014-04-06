@@ -75,6 +75,10 @@
           }
 
           _this.attr(modal_attr, modal_id);
+          
+          $('.modal.hide', _this).click(function () {
+            _this.modal('hide');
+          });
 
           persistentContentFlagArray[modal_id] = options.persistentContent;
 
@@ -104,10 +108,6 @@
               _this.modal('hide');
             });
           }
-
-          $('.modal.hide', _this).click(function () {
-            _this.modal('hide');
-          });
 
           _this.css({zIndex: (helpers.maxZIndex() + 1),
                      position: 'fixed'});
