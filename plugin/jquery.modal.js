@@ -67,7 +67,7 @@
               
               modal_id = 0,
               
-              overlay = '<div />';
+              overlay = $('<div />');
 
           // Stop function if modal window is already visible
           if (_this.is(":visible")) return false;
