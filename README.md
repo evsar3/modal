@@ -17,54 +17,19 @@ Exemple 2:
 Options
 -------
 
-<table>
-    <thead>
-        <tr>
-            <th>Option name</th>
-            <th>Type</th>
-            <th>Default value</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>showOverlay</td>
-            <td>boolean</td>
-            <td>`true`</th>
-            <td>Show modal overlay, if set to `false`, plugin will not create overlay. If you wish a 'invisible' overlay, check `overlayColor` and `overlayOpacity` options.</td>
-        </tr>
-        <tr>
-            <td>persistentContent</td>
-            <td>boolean</td>
-            <td>`true`</th>
-            <td>If this option is set to `false`, when modal hides, the modal DOM structure will be restored to original.</td>
-        </tr>
-        <tr>
-            <td>autoCenter</td>
-            <td>boolean</td>
-            <td>`true`</th>
-            <td>This option set the modal window on center of screen. You can set the modal position manually via CSS.</td>
-        </tr>
-        <tr>
-            <td>overlayClose</td>
-            <td>boolean</td>
-            <td>`false`</th>
-            <td>If is `true`, the modal will be hidden when user click on the overlay.</td>
-        </tr>
-        <tr>
-            <td>overlayOpacity</td>
-            <td>double</td>
-            <td>`0.5`</th>
-            <td>Set the overlay opacity level.</td>
-        </tr>
-        <tr>
-            <td>overlayColor</td>
-            <td>string</td>
-            <td>`#000`</th>
-            <td>Set the overlay color. Don't use RGBA, the alpha must to be controlled via `overlayOpacity` option.</td>
-        </tr>
-    </tbody>
-</table>
+| Option name       | Type  | Default value | Description                                                                                                                                                  |
+|-------------------|-------|---------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| showOverlay       | bool  | `true`        | Show modal overlay, if set to `false`, plugin will not create overlay. If you wish a 'invisible' overlay, check `overlayColor` and `overlayOpacity` options. |
+| persistentContent | bool  | `true`        | If this option is set to `false`, when modal hides, the modal DOM structure will be restored to original.                                                    |
+| autoCenter        | bool  | `true`        | This option set the modal window on center of screen. You can set the modal position manually via CSS.                                                       |
+| overlayClose      | bool  | `false`       | If is `true`, the modal will be hidden when user click on the overlay.                                                                                       |
+| overlayOpacity    | float | `0.5`         | Set the overlay opacity level                                                                                                                                |
+| overlayColor      |       | `#000`        | Set the overlay color. Don't use RGBA, the alpha must to be controlled via `overlayOpacity` option.                                                          |
+
+> Tip: Adding classes `modal hide` on an element inside the modal window, allow the plugin to attach the `hide` method to the element.
+
+Example:
+`<a href="#" title="Close the window" class="close-button modal hide">CLOSE THIS WINDOW</a>`
 
 Methods
 -------
